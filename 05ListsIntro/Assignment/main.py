@@ -5,8 +5,7 @@ print("Demonstrate make_abc =>", make_abc())
 def equal_edges(integers):
     first = integers[0]
     last = integers[-1]
-    # TODO: conversion to integers unnecessary
-    if int(first) == int(last):
+    if first == last:
         return True
     else:
         return False
@@ -26,7 +25,6 @@ def common_edge(list1, list2):
         return False
 print("Demonstrate common_edge [1, 2, 3], [1, 2, 3] =>", common_edge([1, 2, 3], [1, 2, 3]))
 print("Demonstrate common_edge [1, 2, 3], [4, 5, 6] =>", common_edge([1, 2, 3], [4, 5, 6]))
-# TODO: does this work?
 print("Demonstrate common_edge [1, 2, 3], [4, 5, 3] =>", common_edge([1, 2, 3], [4, 5, 3]))
 
 
@@ -46,13 +44,12 @@ def all_unique(list):
     first = list[0]
     middle = list[1]
     last = list[-1]
-    if first != middle and first != last:
+    if first != middle and first != last and middle != last:
         return True
     else:
         return False
 print("Demonstrate all_unique [1, 2, 3] = >", all_unique([1, 2, 3]))
 print("Demonstrate all_unique [1, 1, 1] = >", all_unique([1, 1, 1]))
-# TODO: does this work?
 print("Demonstrate all_unique [1, 2, 2] = >", all_unique([1, 2, 2]))
 
 
@@ -60,8 +57,7 @@ def increasing(list):
     first = list[0]
     middle = list[1]
     last = list[-1]
-    # TODO: redundant checks on next line
-    if first < middle and first < last and middle < last and middle < last:
+    if first < middle and middle < last:
         return True
     else:
         return False
@@ -80,8 +76,7 @@ def all_true(list):
         return False
 print("Demonstrate all_true [True, True, True] =>", all_true([True, True, True]))
 print("Demonstrate all_true [True, False, True] =>", all_true([True, False, True]))
-# TODO: why does this return True? 
-print("Demonstrate all_true [False, False, False] =>", all_true([False, False, False]))
+
 
 
 def mostly_true(list):

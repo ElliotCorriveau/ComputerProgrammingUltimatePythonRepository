@@ -19,7 +19,7 @@ def common_edge(list1, list2):
     last1 = list1[-1]
     last2 = list2[-1]
 
-    if first1 == first2 or first1 == last2:
+    if first1 == first2 or first1 == last2 or last1 == last2:
         return True
     else:
         return False
@@ -96,3 +96,24 @@ print("Demonstrate mostly_true [False, False, False] =>", mostly_true([False, Fa
     
 
     
+def make_copy(items):
+    list = items
+    return list
+print("Demonstrate make_copy [1, 2, 3] =>", make_copy([1, 2, 3]))
+
+def repeat_thrice(integer):
+    item = integer
+    return [integer, integer, integer]
+print("Demonstrate repeat_thrice 5 =>", repeat_thrice(5))
+
+def make_reversed_copy(integers):
+    first, middle , last = integers
+    reversed = [last, middle, first]
+    return reversed
+print("Demonstrate make_reversed_copy [1, 2, 3] =>", make_reversed_copy([1, 2, 3]))
+
+def reverse_in_place(integers):
+    [first, middle, last] = integers
+    integers = [last, middle, first]
+    return integers
+print("Demonstrate reverse_in_place [1, 2, 3] =>", reverse_in_place([1, 2, 3]))

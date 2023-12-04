@@ -86,3 +86,92 @@ def mostly_true(booleans):
 print("mostly_true --------------------------------------")
 print(mostly_true([True, False, True]))
 print(mostly_true([False, False, True]))
+
+
+def all_the_same(nums):
+    count = 0
+    numsTrue = 0
+    while count == 0:
+        for num in nums:
+            if num == nums[0]:
+                numsTrue = numsTrue + 1
+            else:
+                count = count + 1
+                return False
+            if numsTrue == len(nums):
+                return True
+
+print("all_the_same --------------------------------------")   
+print(all_the_same([1, 2, 3]))
+print(all_the_same([1, 1, 1]))
+
+
+def increasing(nums):
+    greatest = nums[0]
+    count = 1
+    for num in nums:
+        if greatest < num:
+            greatest = num
+            count = count + 1
+
+    if count == len(nums):
+        return True
+    else:
+        return False
+        
+print("increasing --------------------------------------")   
+print(increasing([1, 2, 3]))
+print(increasing([1, 1, 1]))
+
+
+def is_incrementing(nums):
+    greatest = nums[0]
+    for num in nums:
+        if num == greatest + 1:
+            return True
+    else:
+        return False
+print("is_incrementing --------------------------------------")   
+print(is_incrementing([1, 2, 3]))
+print(is_incrementing([1, 1, 1]))
+print(is_incrementing([4, 5, 6]))
+    
+def has_adjacent_repeat(nums):
+    prev = 99999999999999999999999
+    for num in nums:
+        if num == prev:
+            prev = num
+            return True
+        else: 
+            prev = num
+    else:
+        return False
+print("had_adjacent_repeat --------------------------------------")   
+print(has_adjacent_repeat([1, 2, 3]))
+print(has_adjacent_repeat([1, 1, 1]))
+print(has_adjacent_repeat([4, 4, 6]))
+
+
+def sum_with_skips(nums):
+    total = 0
+    just_saw_m1 = False
+    for num in nums:
+        if num == -1:
+            just_saw_m1 = True
+        elif just_saw_m1 == True:
+            just_saw_m1 == False
+        else:
+            total = total + num
+        print("num=", num, "just_saw_m1=", just_saw_m1, "total=", total)
+        
+
+    return total
+
+print("sum_with_skips --------------------------------------")   
+print(sum_with_skips([1, 2, 3, -1, 4, 5, 6, -1, 7]))
+print(sum_with_skips([1, -1, 2, -1, 3]))
+print(sum_with_skips([-1, 1, 2, 3, -1]))
+print(sum_with_skips([1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1, 1]))
+
+
+        

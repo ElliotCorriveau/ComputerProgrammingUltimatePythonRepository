@@ -154,17 +154,14 @@ print(has_adjacent_repeat([4, 4, 6]))
 
 def sum_with_skips(nums):
     total = 0
-    just_saw_m1 = False
+    ignoring = False
     for num in nums:
-        if num == -1:
-            just_saw_m1 = True
-        elif just_saw_m1 == True:
-            just_saw_m1 == False
-        else:
+        if num == -1 and ignoring == False:
+            ignoring = True
+        elif num == -1 and ignoring == True:
+            ignoring = False
+        elif ignoring == False:
             total = total + num
-        print("num=", num, "just_saw_m1=", just_saw_m1, "total=", total)
-        
-
     return total
 
 print("sum_with_skips --------------------------------------")   

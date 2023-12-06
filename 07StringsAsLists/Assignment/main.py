@@ -52,15 +52,75 @@ print(in_alphabetical_order("acb"))
 
 def alternate_case(word):
     next_upper = True 
+    result = ""
     for letter in word:
         if next_upper == True:
-            letter = letter.upper()
+            result = result + letter.upper()
             next_upper = False
         else:
+            result = result + letter
             next_upper = True
-    return word
+    return result
 print("alternate_case --------------------------------------") 
 print(alternate_case("python"))
 
+def remove_vowels(word):
+    result = ""
+    for letter in word:
+        if letter in "aeiou":
+            pass
+        else:
+            result = result + letter
+    return result
+print("remove_vowels --------------------------------------") 
+print(remove_vowels("hello"))
+
+def to_camel_case(words):
+    next_upper = False
+    result = ""
+    for letter in words:
+        if letter == " ":
+            next_upper = True
+            result = result + letter
+
+        elif next_upper == True:
+            result = result + letter.upper()
+            next_upper = False
+        else:
+            result = result + letter 
+        result = result.strip()
+    return result
+print("to_camel_case --------------------------------------") 
+print(to_camel_case("hello how are you"))
 
 
+def to_snake_case(words):
+    result = words.replace(" ","_")
+    return result
+print("to_snake_case --------------------------------------") 
+print(to_snake_case("hello how are you"))
+
+
+def without_duplicates(integers):
+    previous = ""
+    result = []
+    for number in integers:
+        if number == previous:
+            previous = number
+        else:
+            result.append(number)
+            previous = number
+    return result
+print("without_duplicates --------------------------------------") 
+print(without_duplicates([1, 1, 2, 3]))
+
+def filter_valid_act_score(scores):
+    result = []
+    for score in scores:
+        if score > 0 and score < 37:
+            result.append(score)
+        else:
+            pass
+    return result 
+print("filter_valid_act_score --------------------------------------") 
+print(filter_valid_act_score([37, 36, 1, 0]))

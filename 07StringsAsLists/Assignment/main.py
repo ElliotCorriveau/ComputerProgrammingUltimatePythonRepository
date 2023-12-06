@@ -50,6 +50,17 @@ print("in_alphabetical_order --------------------------------------")
 print(in_alphabetical_order("abc"))
 print(in_alphabetical_order("acb"))
 
+def alternate_case(word):
+    next_upper = True 
+    for letter in word:
+        if next_upper == True:
+            letter = letter.upper()
+            next_upper = False
+        else:
+            next_upper = True
+    return word
+print("alternate_case --------------------------------------") 
+print(alternate_case("python"))
 
 
 

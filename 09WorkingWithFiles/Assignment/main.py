@@ -60,6 +60,8 @@ def number_of_abcdf(reader):
     return a_count, b_count, c_count, d_count, f_count
 print (number_of_abcdf(reader))
 
+f = open("../data/gradebook_data.csv", "r")
+reader = csv.reader(f) 
 def average_grades(reader):
     fcount = 0 
     ftotal = 0
@@ -78,28 +80,38 @@ def average_grades(reader):
         gradelevel = int(gradelevel)
         percent = int(percent)
         if gradelevel == 9:
-            total = total + percent
-            count = count + 1
-        f_average = total / count
+            ftotal = ftotal + percent
+            fcount = fcount + 1
+            f_average = ftotal / fcount
 
         if gradelevel == 10:
-            total = total + percent
-            count = count + 1
-            so_average = total / count
+            sototal = sototal + percent
+            socount = socount + 1
+            so_average = sototal / socount
 
         if gradelevel == 11:
-            total = total + percent
-            count = count + 1
-            jun_average = total / count
+            juntotal = juntotal + percent
+            juncount = juncount + 1
+            jun_average = juntotal / juncount
 
         if gradelevel == 12:
-            total = total + percent
-            count = count + 1
-            sen_average = total / count
-    return  f_average, so_average, jun_average, sen_average
+            sentotal = sentotal + percent
+            sencount = sencount + 1
+            sen_average = sentotal / sencount
+    return  round(f_average, 2), round(so_average, 2), round(jun_average, 2), round(sen_average, 2)
 print(average_grades(reader))
 
+f = open("../data/gradebook_data.csv", "r")
+reader = csv.reader(f) 
+def seniors_with_f(reader):
 
+    for row in reader:
+        name, gradelevel, percent = row
+        gradelevel = int(gradelevel)
+        percent = int(percent)
+        if gradelevel == 12 and percent < 60:
+           print(name)
 
+    return ""
 
-
+print(seniors_with_f(reader))

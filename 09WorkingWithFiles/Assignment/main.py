@@ -1,4 +1,6 @@
 import csv
+import json
+import os
 f = open("../data/4000-most-common-english-words.csv", "r")
 words = f.read().split("\n")
 f.close()
@@ -115,3 +117,79 @@ def seniors_with_f(reader):
     return ""
 
 print(seniors_with_f(reader))
+
+
+f = open("../data/1000-largest-us-cities.json", "r")
+cities = json.load(f)
+f.close()
+kansas_cities = ""
+for city in cities:
+    if city["state"] == "Kansas":
+        kansas_cities = kansas_cities + city["city"] + " "
+print(kansas_cities)
+
+f = open("../data/1000-largest-us-cities.json", "r")
+cities = json.load(f)
+f.close()
+longest_name = ""
+for city in cities:
+    if len(city["city"]) > len(longest_name):
+        longest_name = city["city"]
+print(longest_name)
+
+f = open("../data/1000-largest-us-cities.json", "r")
+cities = json.load(f)
+f.close()
+north = 0
+mostnorth = ""
+south = 9999999999999
+mostsouth = ""
+east = -999999999
+mosteast = ""
+west = 0
+mostwest = ""
+for city in cities:
+    if city["latitude"] > north:
+        north = city["latitude"]
+        mostnorth = city["city"]
+    if city["latitude"] < south:
+        south = city["latitude"]
+        mostsouth = city["city"]
+    if city["longitude"] > east:
+        east = city["longitude"]
+        mosteast = city["city"]
+    if city["longitude"] < west:
+        west = city["longitude"]
+        mostwest = city["city"]
+    
+print("North:")  
+print(mostnorth)
+print("South:")
+print(mostsouth)
+print("West:")
+print(mostwest)
+print("East:")
+print(mosteast)
+
+f = open("../data/1000-largest-us-cities.json", "r")
+cities = json.load(f)
+f.close()
+growing = ""
+growing_city = ""
+shrinking_city = ""
+shrinking = "9999999999"
+for city in cities:
+    if city["growth_from_2000_to_2013"] > growing:
+        growing = city["growth_from_2000_to_2013"]
+        growing_city = city["city"]
+    if city["growth_from_2000_to_2013"] < shrinking:
+        shrinking = city["growth_from_2000_to_2013"]
+        shrinking_city = city["city"]
+print("Shrinking:")
+print(shrinking_city)
+print("Growing:")
+print(growing_city)
+
+
+
+
